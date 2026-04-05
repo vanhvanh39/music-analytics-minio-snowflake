@@ -1,0 +1,60 @@
+version: 2
+
+models:
+  - name: stg_tracks
+    description: Cleaned and typed staging model built from raw iTunes data.
+    columns:
+      - name: track_id
+        tests:
+          - not_null
+      - name: track_name
+        tests:
+          - not_null
+
+  - name: dim_track
+    columns:
+      - name: track_key
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_artist
+    columns:
+      - name: artist_key
+        tests:
+          - not_null
+
+  - name: dim_album
+    columns:
+      - name: album_key
+
+  - name: dim_time
+    columns:
+      - name: date_key
+
+  - name: dim_term
+    columns:
+      - name: term_key
+        tests:
+          - not_null
+
+  - name: fact_track_snapshot_hourly
+    columns:
+      - name: track_key
+        tests:
+          - not_null
+      - name: time_key
+      - name: term_key
+
+  - name: agg_term_daily_metrics
+    columns:
+      - name: term_key
+      - name: time_key
+      - name: track_count
+
+  - name: agg_term_daily_delta
+    columns:
+      - name: term_key
+      - name: time_key
+      - name: track_count_delta
+      - name: avg_price_delta

@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: raw
+    database: MUSIC_DB
+    schema: RAW
+    tables:
+      - name: itunes_tracks_raw
+        identifier: ITUNES_TRACKS_RAW
+        description: Raw iTunes track data loaded from the local ELT pipeline.
+        columns:
+          - name: TRACK_ID
+            tests:
+              - not_null
+          - name: ARTIST_ID
+          - name: COLLECTION_ID
+          - name: ARTIST_NAME
+          - name: COLLECTION_NAME
+          - name: TRACK_NAME
+          - name: PRIMARY_GENRE_NAME
+          - name: TRACK_PRICE
+          - name: CURRENCY
+          - name: RELEASE_DATE
+          - name: COUNTRY

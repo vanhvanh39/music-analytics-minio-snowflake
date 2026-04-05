@@ -1,0 +1,17 @@
+services:
+  airflow:
+    image: apache/airflow:3.1.0
+    container_name: airflow
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - .:/opt/airflow/project
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: "admin:admin,airflow:airflow"
+    command: >
+      bash -c "
+      pip install dbt-core dbt-snowflake &&
+      airflow standalone
+      "

@@ -1,0 +1,6 @@
+minio==7.2.15
+requests==2.32.3
+pandas==2.2.3
+python-dotenv==1.0.1
+snowflake-connector-python==3.14.0
+apache-airflow==2.11.0

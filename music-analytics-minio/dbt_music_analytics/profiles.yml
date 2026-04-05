@@ -1,0 +1,14 @@
+dbt_music_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: TBUKFXZ-PB02948
+      user: VANHVANHVANH39
+      password: "@NHvanh39393939"
+      role: ACCOUNTADMIN
+      database: MUSIC_DB
+      warehouse: COMPUTE_WH
+      schema: PUBLIC
+      threads: 4
+      client_session_keep_alive: false
