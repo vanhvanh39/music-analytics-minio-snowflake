@@ -12,17 +12,26 @@ models:
           - not_null
 
   - name: dim_track
+    description: Track dimension storing one record per track.
     columns:
       - name: track_key
         tests:
           - not_null
           - unique
+      - name: track_id
+      - name: track_name
+      - name: artist_id
+      - name: album_id
+      - name: genre
 
   - name: dim_artist
+    description: Artist dimension storing one record per artist.
     columns:
       - name: artist_key
         tests:
           - not_null
+      - name: artist_id
+      - name: artist_name
 
   - name: dim_album
     columns:

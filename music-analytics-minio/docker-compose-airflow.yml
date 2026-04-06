@@ -9,9 +9,9 @@ services:
       - .:/opt/airflow/project
     environment:
       AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: "admin:admin,airflow:airflow"
+      AIRFLOW__CORE__SIMPLE_AUTH_MANAGER_USERS: "admin:admin"
     command: >
       bash -c "
-      pip install dbt-core dbt-snowflake &&
-      airflow standalone
+       pip install dbt-core dbt-snowflake minio python-dotenv pandas snowflake-connector-python &&
+        airflow standalone
       "

@@ -14,7 +14,7 @@ with DAG(
     dag_id="itunes_minio_snowflake_pipeline",
     default_args=default_args,
     description="MinIO -> Snowflake -> dbt pipeline",
-    schedule_interval="@daily",
+    schedule="@daily",
     start_date=datetime(2026, 1, 1),
     catchup=False,
     tags=["music", "data-engineering"],
